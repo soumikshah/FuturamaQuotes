@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Futurama Quotes</string>
+    <string name="download_error_message">Error downloading data</string>
+</resources>
