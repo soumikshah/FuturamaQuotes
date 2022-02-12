@@ -35,7 +35,7 @@ class QuotesListAdapter(var quotes: ArrayList<Quote>):RecyclerView.Adapter<Quote
 
         fun bind(quote:Quote){
             quoteDialog.text = quote.dialog
-            quoteAuthor.text = quote.characterName
+            quoteAuthor.text = String.format("- %s",quote.characterName)
             imageView.loadImage(quote.image,progressBar)
         }
     }

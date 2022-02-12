@@ -6,7 +6,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class QuotesService {
-    private val BASE_URL = "http://futuramaapi.herokuapp.com"
+    private val BASE_URL = "https://raw.githubusercontent.com"
     var api:QuotesApi
 
     init {

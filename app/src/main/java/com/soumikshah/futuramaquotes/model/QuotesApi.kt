@@ -4,6 +4,6 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 interface QuotesApi {
-    @GET("api/quotes")
+    @GET("soumikshah/MyFiles/main/futuramaquotes.json")
     fun getQuotes():Single<List<Quote>>
 }
