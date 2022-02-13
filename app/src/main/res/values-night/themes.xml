@@ -14,12 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="Quote">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#fff</item>
     </style>
     <style name="Author">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textColor">#fff</item>
     </style>
 </resources>
