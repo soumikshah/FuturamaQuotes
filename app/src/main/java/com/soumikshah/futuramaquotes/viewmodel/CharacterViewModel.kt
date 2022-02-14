@@ -2,20 +2,26 @@ package com.soumikshah.futuramaquotes.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.soumikshah.futuramaquotes.di.DaggerApiComponent
 import com.soumikshah.futuramaquotes.model.Character
 import com.soumikshah.futuramaquotes.model.CharacterService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 class CharacterViewModel: ViewModel() {
     var character = MutableLiveData<List<Character>>()
     var errorMessage = MutableLiveData<Boolean>()
     var loading = MutableLiveData<Boolean>()
     private val disposable = CompositeDisposable()
-    private val characterService= CharacterService()
+    @Inject
+    lateinit var characterService: CharacterService
 
+    init {
+        DaggerApiComponent.create().inject(this)
+    }
     fun refresh(){
         fetchCharacters()
     }

@@ -89,7 +89,6 @@ class MainActivity : AppCompatActivity() {
             characters?.let {
                 for(character in characters){
                     if(character.screenName!= null){
-                        Log.d("Futurama","Character ${character.screenName}")
                         val button = ThemedButton(buttonGroup!!.context)
                         button.text = character.screenName.toString()
                         buttonGroup!!.addView(button,

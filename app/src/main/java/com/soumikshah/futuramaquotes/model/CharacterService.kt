@@ -1,21 +1,19 @@
 package com.soumikshah.futuramaquotes.model
 
+import com.soumikshah.futuramaquotes.di.DaggerApiComponent
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 class CharacterService {
-    private val CHARACTER_URL = "https://raw.githubusercontent.com"
-    var api:CharacterApi
+
+    @Inject
+    lateinit var api:CharacterApi
 
     init {
-        api = Retrofit.Builder()
-            .baseUrl(CHARACTER_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
-            .create(CharacterApi::class.java)
+        DaggerApiComponent.create().inject(this)
     }
 
     fun getCharacters():Single<List<Character>>{
