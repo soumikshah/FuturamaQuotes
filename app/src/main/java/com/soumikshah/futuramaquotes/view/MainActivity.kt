@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.view.forEach
 import androidx.core.view.marginTop
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -29,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     private var errorMessage:TextView? =null
     private var progressBar:ProgressBar? = null
     private var buttonGroup:ThemedToggleButtonGroup? = null
-
 
     private val quotesAdapter = QuotesListAdapter(arrayListOf())
 
@@ -54,10 +54,15 @@ class MainActivity : AppCompatActivity() {
             adapter = quotesAdapter
         }
 
+        buttonGroup!!.setOnSelectListener { button: ThemedButton ->
+            viewModel.fetchSpecificQuotes(button.text)
+        }
+
         swipeRefreshLayout!!.setOnRefreshListener {
             swipeRefreshLayout!!.isRefreshing = false
             viewModel.refresh()
         }
+
         observeViewModel()
     }
 
