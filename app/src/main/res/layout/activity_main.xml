@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             app:flexWrap="wrap"
-            app:toggle_horizontalSpacing="2dp"
             app:toggle_selectAnimation="circular_reveal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
