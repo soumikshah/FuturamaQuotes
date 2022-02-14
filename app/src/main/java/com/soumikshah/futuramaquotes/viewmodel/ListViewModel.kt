@@ -20,7 +20,8 @@ class ListViewModel: ViewModel() {
 
     @Inject
     lateinit var quoteService: QuotesService
-    private val specificQuoteService=SearchQuoteService()
+    @Inject
+    lateinit var specificQuoteService:SearchQuoteService
 
     init {
         DaggerApiComponent.create().inject(this)

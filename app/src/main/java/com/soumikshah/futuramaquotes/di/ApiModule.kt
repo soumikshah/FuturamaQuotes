@@ -1,9 +1,6 @@
 package com.soumikshah.futuramaquotes.di
 
-import com.soumikshah.futuramaquotes.model.CharacterApi
-import com.soumikshah.futuramaquotes.model.CharacterService
-import com.soumikshah.futuramaquotes.model.QuotesApi
-import com.soumikshah.futuramaquotes.model.QuotesService
+import com.soumikshah.futuramaquotes.model.*
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -13,6 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module
 class ApiModule {
     private val BASE_URL = "https://raw.githubusercontent.com"
+    private val SEARCH_URL = "http://futuramaapi.herokuapp.com"
+
     @Provides
     fun provideQuotesApi():QuotesApi{
         return Retrofit.Builder()
@@ -42,4 +41,20 @@ class ApiModule {
     fun providesCharacterService():CharacterService{
         return CharacterService()
     }
+
+    @Provides
+    fun providesSpecificQuotes():SearchQuoteApi{
+        return Retrofit.Builder()
+            .baseUrl(SEARCH_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+            .create(SearchQuoteApi::class.java)
+    }
+
+    @Provides
+    fun provideSearchQuoteService():SearchQuoteService{
+        return SearchQuoteService()
+    }
+
 }
