@@ -96,11 +96,15 @@ class MainActivity : AppCompatActivity() {
                     if(character.screenName!= null){
                         val button = ThemedButton(buttonGroup!!.context)
                         button.text = character.screenName.toString()
+                        button.textColor = R.color.gray
                         buttonGroup!!.addView(button,
                         ViewGroup.LayoutParams(
                             ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.MATCH_PARENT
                         ))
+                        val param = button.layoutParams as ViewGroup.MarginLayoutParams
+                        param.setMargins(0,5,3,0)
+                        button.layoutParams = param
                     }
                 }
             }
