@@ -2,6 +2,8 @@
 
 This application allows you to see futurama quotes. You can search quotes according to the character that said it as well. Futurama Quotes demonstrates modern Android development implements MVVM architecture.
 
+![image](https://user-images.githubusercontent.com/6127736/154058953-182767e4-bfb6-4274-b609-8f48082e320f.jpg)
+![image1](https://user-images.githubusercontent.com/6127736/154058977-50667871-37e2-4611-8ec1-d7d561af81ba.jpg)
 
 
 ## Download
